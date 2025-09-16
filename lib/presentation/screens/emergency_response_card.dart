@@ -27,9 +27,9 @@ class EmergencyResponseCard extends StatelessWidget {
             BlocBuilder<EmergencyBloc, EmergencyState>(
               builder: (context, state) {
                 if (state.status == EmergencyStatus.sent) {
-                  return buildAlertSentButton();
+                  return const _AlertSentButton();
                 } else {
-                  return buildPanicButton(context, state.status);
+                  return const _PanicButton();
                 }
               },
             ),
@@ -51,8 +51,15 @@ class EmergencyResponseCard extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget buildPanicButton(BuildContext context, EmergencyStatus status) {
+// Private helper widget for the panic button.
+class _PanicButton extends StatelessWidget {
+  const _PanicButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    final status = context.watch<EmergencyBloc>().state.status;
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
@@ -62,7 +69,6 @@ class EmergencyResponseCard extends StatelessWidget {
           padding: const EdgeInsets.symmetric(vertical: 14),
         ),
         onPressed: status == EmergencyStatus.sending ? null : () {
-          // Add the event to the BLoC on button press.
           BlocProvider.of<EmergencyBloc>(context).add(PanicButtonPressed());
         },
         icon: const Icon(Icons.error_outline),
@@ -73,8 +79,14 @@ class EmergencyResponseCard extends StatelessWidget {
       ),
     );
   }
+}
 
-  Widget buildAlertSentButton() {
+// Private helper widget for the alert sent button.
+class _AlertSentButton extends StatelessWidget {
+  const _AlertSentButton({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return SizedBox(
       width: double.infinity,
       child: ElevatedButton.icon(
