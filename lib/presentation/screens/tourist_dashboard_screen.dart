@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'emergency_response_card.dart'; // Import the correct file
 import '../bloc/emergency_bloc/emergency_bloc.dart';
+import '../../main.dart';
 
 class TouristDashboardScreen extends StatelessWidget {
   const TouristDashboardScreen({Key? key}) : super(key: key);
@@ -46,7 +47,13 @@ class TouristDashboardScreen extends StatelessWidget {
             ListTile(
               leading: Icon(Icons.logout),
               title: Text('Logout'),
-              onTap: () => Navigator.pop(context),
+              onTap: () {
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => const HomePage()),
+                  (route) => false,
+                );
+              },
             ),
           ],
         ),

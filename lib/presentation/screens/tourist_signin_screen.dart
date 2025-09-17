@@ -129,7 +129,7 @@ class _TouristSignInScreenState extends State<TouristSignInScreen> {
                           },
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),

@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
+import 'presentation/providers/incident_provider.dart';
 import 'presentation/screens/tourist_signin_screen.dart';
 import 'presentation/screens/police_signin_screen.dart';
 import 'presentation/screens/tourism_dept_signin_screen.dart';
 import 'presentation/screens/admin_signin_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    ChangeNotifierProvider(
+      create: (_) => IncidentProvider(),
+      child: const MyApp(),
+    ),
+  );
 }
 
 class MyApp extends StatelessWidget {

@@ -38,7 +38,7 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
+                        color: Colors.purple.shade50,
                         borderRadius: BorderRadius.circular(18),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -50,14 +50,14 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
                         children: const [
                           Icon(
                             Icons.settings_outlined,
-                            color: Colors.blue,
+                            color: Colors.purple,
                             size: 24,
                           ),
                           SizedBox(width: 8),
                           Text(
                             'System Admin Login',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.purple,
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                             ),
@@ -122,7 +122,7 @@ class _AdminSignInScreenState extends State<AdminSignInScreen> {
                           },
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),

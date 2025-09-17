@@ -39,7 +39,7 @@ class _TourismDeptSignInScreenState extends State<TourismDeptSignInScreen> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
+                        color: Colors.green.shade50,
                         borderRadius: BorderRadius.circular(18),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -51,14 +51,14 @@ class _TourismDeptSignInScreenState extends State<TourismDeptSignInScreen> {
                         children: const [
                           Icon(
                             Icons.analytics_outlined,
-                            color: Colors.blue,
+                            color: Colors.green,
                             size: 24,
                           ),
                           SizedBox(width: 8),
                           Text(
                             'Tourism Dept Login',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.green,
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                             ),
@@ -123,7 +123,7 @@ class _TourismDeptSignInScreenState extends State<TourismDeptSignInScreen> {
                           },
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),

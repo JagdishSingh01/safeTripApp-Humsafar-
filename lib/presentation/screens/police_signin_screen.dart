@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'police_dashboard_screen.dart';
 
 class PoliceSignInScreen extends StatefulWidget {
   const PoliceSignInScreen({Key? key}) : super(key: key);
@@ -38,7 +39,7 @@ class _PoliceSignInScreenState extends State<PoliceSignInScreen> {
                   children: [
                     Container(
                       decoration: BoxDecoration(
-                        color: Colors.blue.shade50,
+                        color: Colors.red.shade50,
                         borderRadius: BorderRadius.circular(18),
                       ),
                       padding: const EdgeInsets.symmetric(
@@ -50,14 +51,14 @@ class _PoliceSignInScreenState extends State<PoliceSignInScreen> {
                         children: const [
                           Icon(
                             Icons.shield_outlined,
-                            color: Colors.blue,
+                            color: Colors.red,
                             size: 24,
                           ),
                           SizedBox(width: 8),
                           Text(
                             'Police Officer Login',
                             style: TextStyle(
-                              color: Colors.blue,
+                              color: Colors.red,
                               fontWeight: FontWeight.w600,
                               fontSize: 16,
                             ),
@@ -118,11 +119,17 @@ class _PoliceSignInScreenState extends State<PoliceSignInScreen> {
                             padding: const EdgeInsets.symmetric(vertical: 16),
                           ),
                           onPressed: () {
-                            // TODO: Add sign-in logic
+                            Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                builder:
+                                    (context) => const PoliceDashboardScreen(),
+                              ),
+                            );
                           },
                           child: const Text(
                             'Sign In',
-                            style: TextStyle(fontSize: 18),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),
