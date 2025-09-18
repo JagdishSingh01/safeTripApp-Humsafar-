@@ -96,40 +96,49 @@ class _PoliceDashboardScreenState extends State<PoliceDashboardScreen> {
               elevation: 4,
               child: Padding(
                 padding: const EdgeInsets.all(18),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: const [
-                        Text(
-                          'Police Control Center',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 18,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: const [
+                          Text(
+                            'Police Control Center',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
                           ),
-                        ),
-                        SizedBox(height: 4),
-                        Text(
-                          'Officer: Inspector Priya Das | Badge: MP001',
-                          style: TextStyle(fontSize: 13, color: Colors.black54),
-                        ),
-                      ],
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      children: const [
-                        Text(
-                          'Department',
-                          style: TextStyle(fontSize: 12, color: Colors.black54),
-                        ),
-                        Text(
-                          'Meghalaya Police',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                      ],
-                    ),
-                  ],
+                          SizedBox(height: 4),
+                          Text(
+                            'Officer: Inspector Priya Das | Badge: MP001',
+                            style: TextStyle(
+                              fontSize: 13,
+                              color: Colors.black54,
+                            ),
+                          ),
+                        ],
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: const [
+                          Text(
+                            'Department',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.black54,
+                            ),
+                          ),
+                          Text(
+                            'Meghalaya Police',
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -613,7 +622,10 @@ class IncidentDetailsDialogProvider extends StatelessWidget {
                     ),
                   ),
                   onPressed: onAssign,
-                  child: const Text('Assign to Me', style: TextStyle(color: Colors.white),),
+                  child: const Text(
+                    'Assign to Me',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
             if (onResolve != null)
@@ -627,7 +639,10 @@ class IncidentDetailsDialogProvider extends StatelessWidget {
                     ),
                   ),
                   onPressed: onResolve,
-                  child: const Text('Mark Resolved', style: TextStyle(color: Colors.white)),
+                  child: const Text(
+                    'Mark Resolved',
+                    style: TextStyle(color: Colors.white),
+                  ),
                 ),
               ),
           ],

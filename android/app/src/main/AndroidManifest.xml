@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
     <application
-        android:label="safe_trip"
+        android:label="Humsafar"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
