@@ -33,13 +33,69 @@ class IncidentProvider extends ChangeNotifier {
   final List<Incident> _assignedCases = [];
 
   int _resolvedToday = 0;
-  int _activeTourists = 1; // Demo: 1 active tourist (Sarah Johnson)
+  List<Map<String, dynamic>> _tourists = [
+    {
+      'digitalId': 'DTID-2024-NE-001',
+      'name': 'Sarah Johnson',
+      'phone': '9876543210',
+      'nationality': 'USA',
+      'status': 'SAFE',
+      'score': '92/100',
+      'expiry': '12/22/2024',
+      'startDate': '01-12-2024',
+      'endDate': '12-22-2024',
+      'destinations': 'Meghalaya, Assam',
+      'routes': 'Guwahati, Shillong, Cherrapunji',
+      'emergencyName': 'John Johnson',
+      'emergencyPhone': '1234567890',
+      'emergencyRelation': 'Parent',
+    },
+    {
+      'digitalId': 'DTID-2024-NE-002',
+      'name': 'Hiroshi Tanaka',
+      'phone': '8765432109',
+      'nationality': 'Japan',
+      'status': 'SAFE',
+      'score': '95/100',
+      'expiry': '12/21/2024',
+      'startDate': '01-11-2024',
+      'endDate': '12-21-2024',
+      'destinations': 'Assam',
+      'routes': 'Guwahati',
+      'emergencyName': 'Yuki Tanaka',
+      'emergencyPhone': '2345678901',
+      'emergencyRelation': 'Spouse',
+    },
+  ];
+
+  List<Map<String, dynamic>> get tourists => List.unmodifiable(_tourists);
+  int get activeTourists => _tourists.length;
+
+  void addTourist(Map<String, dynamic> tourist) {
+    _tourists.add(tourist);
+    notifyListeners();
+  }
+
+  void editTourist(int index, Map<String, dynamic> tourist) {
+    if (index >= 0 && index < _tourists.length) {
+      _tourists[index] = tourist;
+      notifyListeners();
+    }
+  }
+
+  void removeTourist(int index) {
+    if (index >= 0 && index < _tourists.length) {
+      _tourists.removeAt(index);
+      notifyListeners();
+    }
+  }
+
   List<int> _responseTimes = [];
 
   List<Incident> get criticalIncidents => List.unmodifiable(_criticalIncidents);
   List<Incident> get assignedCases => List.unmodifiable(_assignedCases);
   int get resolvedToday => _resolvedToday;
-  int get activeTourists => _activeTourists;
+  // int get activeTourists => _activeTourists; // Remove old getter, now based on _tourists.length
   double get avgResponseTime {
     if (_responseTimes.isEmpty) return 0.0;
     return _responseTimes.reduce((a, b) => a + b) / _responseTimes.length;
